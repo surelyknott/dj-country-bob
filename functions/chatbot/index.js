@@ -12,7 +12,7 @@ client
 // Appwrite function entry point
 module.exports = async function (req, res) {
     // Set CORS headers
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Allow your frontend domain
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Allow your frontend domain, wildcare now
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS'); // Allow specific methods
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Allow specific headers
 
