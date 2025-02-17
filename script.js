@@ -25,11 +25,11 @@ async function sendMessage() {
   input.value = ""; // Clear input
 
   try {
-      const response = await fetch("https://cloud.appwrite.io/v1/functions/67b29c5b8143655a6b04/executions", {
+      const response = await fetch("https://cloud.appwrite.io/v1/functions/67b35dc4cb12617771cb/executions", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
-              "X-Appwrite-Project": "67b29c5a002716522931", // Replace with your Appwrite project ID
+              "X-Appwrite-Project": "b0b5ap1funct1ono2", // Replace with your Appwrite project ID
           },
           body: JSON.stringify({ question }),
       });

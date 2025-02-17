@@ -1,10 +1,23 @@
-import { Client, Functions } from "node-appwrite";
-import fetch from "node-fetch";
+require('dotenv').config();
+const { Client, Functions } = require('node-appwrite');
+const fetch = require('node-fetch'); // Ensure node-fetch is available for making HTTP requests to OpenAI API
+
+// Initialize Appwrite client
+const client = new Client();
+client
+    .setEndpoint('https://[your-appwrite-instance-url]/v1') // Appwrite endpoint
+    .setProject('b0b5ap1funct1ono2')                        // Replace with your new project ID
+    .setKey(process.env.APPWRITE_API_KEY);                 // Use your Appwrite API key
+
+const openai = require('openai');
+const openaiClient = new openai.OpenAI({
+    apiKey: process.env.OPENAI_API_KEY, // Use environment variable for OpenAI API Key
+});
 
 // Appwrite function entry point
-export default async function(req, res) {
+module.exports = async function (req, res) {
     // Set CORS headers
-    res.setHeader('Access-Control-Allow-Origin', 'https://dj-bob.netlify.app'); // Allow all origins (or specify your frontend domain)
+    res.setHeader('Access-Control-Allow-Origin', 'https://dj-bob.netlify.app'); // Allow your frontend domain
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS'); // Allow specific methods
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Allow specific headers
 
@@ -14,8 +27,8 @@ export default async function(req, res) {
     }
 
     try {
-        // Get user input from request payload
-        const { question } = JSON.parse(req.payload);
+        // Get user input from request payload (from POST body)
+        const { question } = req.body;
 
         if (!question) {
             return res.json({ error: "Question is required" }, 400);
@@ -52,6 +65,4 @@ export default async function(req, res) {
         console.error("Error:", error); // Log the error for debugging
         return res.json({ error: error.message || "Internal Server Error" }, 500);
     }
-}
-
-require("dotenv").config();
+};
