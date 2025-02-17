@@ -1,18 +1,13 @@
 require('dotenv').config();
-const { Client, Functions } = require('node-appwrite');
+const { Client } = require('node-appwrite');  // Removed 'Functions' since it's not used
 const fetch = require('node-fetch'); // Ensure node-fetch is available for making HTTP requests to OpenAI API
 
 // Initialize Appwrite client
 const client = new Client();
 client
-    .setEndpoint('https://[your-appwrite-instance-url]/v1') // Appwrite endpoint
-    .setProject('b0b5ap1funct1ono2')                        // Replace with your new project ID
-    .setKey(process.env.APPWRITE_API_KEY);                 // Use your Appwrite API key
-
-const openai = require('openai');
-const openaiClient = new openai.OpenAI({
-    apiKey: process.env.OPENAI_API_KEY, // Use environment variable for OpenAI API Key
-});
+    .setEndpoint('https://cloud.appwrite.io/v1') // Appwrite endpoint
+    .setProject('b0b5ap1funct1ono2')            // Replace with your new project ID
+    .setKey(process.env.APPWRITE_API_KEY);       // Use your Appwrite API key
 
 // Appwrite function entry point
 module.exports = async function (req, res) {
