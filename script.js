@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-const appwriteApiKey = process.env.BOB_APP_APPWRITE_API_KEY;
+const appwriteApiKey = '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'; // Set directly here
 
 async function sendMessage() {
   const input = document.getElementById("userInput");
@@ -31,16 +31,16 @@ async function sendMessage() {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${appwriteApiKey}`
+            "Authorization": `Bearer ${appwriteApiKey}` // Use the variable directly
         },
-        body: JSON.stringify({ question: question })
-      });
-
+        body: JSON.stringify({ question: question })  // Use the 'question' directly
+  });
+  
       const data = await response.json();
       chatbox.innerHTML += `<div class="message bot">${data.reply || "Error processing request"}</div>`;
   } catch (error) {
       chatbox.innerHTML += `<div class="message bot">Error connecting to server</div>`;
-      console.error("Error:", error); // Log the error for debugging
   }
 }
+
 
