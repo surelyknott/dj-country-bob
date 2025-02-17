@@ -26,13 +26,15 @@ async function sendMessage() {
 
   try {
       const response = await fetch("https://cloud.appwrite.io/v1/functions/b0b5ap1funct1ono2/executions", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-              "X-Appwrite-Project": "b0b5ap1funct1ono2", // Replace with your Appwrite project ID
-          },
-          body: JSON.stringify({ question }),
-      });
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${process.env.APPWRITE_API_KEY}`
+        },
+        body: JSON.stringify({ question: userInput }),
+        mode: 'no-cors' // Add this line
+  });
+  
       const data = await response.json();
       chatbox.innerHTML += `<div class="message bot">${data.reply || "Error processing request"}</div>`;
   } catch (error) {
