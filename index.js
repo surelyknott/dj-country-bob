@@ -3,9 +3,19 @@ import fetch from "node-fetch";
 
 // Appwrite function entry point
 export default async function(req, res) {
+    // Set CORS headers
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins (or specify your frontend domain)
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS'); // Allow specific methods
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Allow specific headers
+
+    // Handle preflight requests
+    if (req.method === 'OPTIONS') {
+        return res.send('OK', 200);
+    }
+
     try {
         // Get user input from request payload
-        const { question } = JSON.parse(req.body);
+        const { question } = JSON.parse(req.payload);
 
         if (!question) {
             return res.json({ error: "Question is required" }, 400);
@@ -39,6 +49,7 @@ export default async function(req, res) {
         }
 
     } catch (error) {
+        console.error("Error:", error); // Log the error for debugging
         return res.json({ error: error.message || "Internal Server Error" }, 500);
     }
 }
