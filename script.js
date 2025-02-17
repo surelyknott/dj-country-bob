@@ -25,7 +25,7 @@ async function sendMessage() {
   input.value = ""; // Clear input
 
   try {
-      const response = await fetch("https://cloud.appwrite.io/v1/functions/67b35dc4cb12617771cb/executions", {
+      const response = await fetch("https://cloud.appwrite.io/v1/functions/b0b5ap1funct1ono2/executions", {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
