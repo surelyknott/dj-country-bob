@@ -11,6 +11,8 @@ html, body {
 ul.genreButtons{
 list-style: none;
 background: brown;
+border: 1px solid black;
+border-radius: 5px;
 padding: 5px;
 display: flex;
 align-items: center;
@@ -172,7 +174,7 @@ h2{
 
 /* Chatbot */
 
-#chatbox { width: 80%; max-width: 300px; margin: 10px auto; border: 1px solid #ccc;}
+#chatbox { width: 80%; max-width: 300px; margin: 10px auto; border: 2px solid #bab5b5;}
       .message { padding: 5px; margin: 5px 0;}
       .user { text-align: right; color: black;}
       .bot { text-align: left; color: blue;}
