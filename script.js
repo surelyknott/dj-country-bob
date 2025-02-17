@@ -41,3 +41,4 @@ async function sendMessage() {
     chatbox.innerHTML += `<div class="message bot">Error connecting to server</div>`;
   }
 }
+
