@@ -31,7 +31,6 @@ async function sendMessage() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer  ${process.env.APPWRITE_API_KEY}`,  // You should replace with your Appwrite API key if needed
       },
       body: JSON.stringify({ question }), // Send the question as part of the request
     });
