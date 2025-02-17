@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+const appwriteApiKey = process.env.BOB_APP_APPWRITE_API_KEY;
+
 async function sendMessage() {
   const input = document.getElementById("userInput");
   const chatbox = document.getElementById("chatbox");
@@ -29,9 +31,9 @@ async function sendMessage() {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${process.env.APPWRITE_API_KEY}`
+            "Authorization": `Bearer ${appwriteApiKey}`
         },
-        body: JSON.stringify({ question: question }) // Make sure to pass the correct variable
+        body: JSON.stringify({ question: question })
       });
 
       const data = await response.json();
@@ -41,3 +43,4 @@ async function sendMessage() {
       console.error("Error:", error); // Log the error for debugging
   }
 }
+
