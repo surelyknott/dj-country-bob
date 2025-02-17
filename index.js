@@ -4,7 +4,7 @@ import fetch from "node-fetch";
 // Appwrite function entry point
 export default async function(req, res) {
     // Set CORS headers
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins (or specify your frontend domain)
+    res.setHeader('Access-Control-Allow-Origin', 'https://dj-bob.netlify.app'); // Allow all origins (or specify your frontend domain)
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS'); // Allow specific methods
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type'); // Allow specific headers
 

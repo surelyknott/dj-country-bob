@@ -13,29 +13,26 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-const sendMessage = async (message) => {
+async function sendMessage() {
+  const input = document.getElementById("userInput");
+  const chatbox = document.getElementById("chatbox");
+  const question = input.value.trim();
+  if (!question) return;
+
+  // Display user message
+  chatbox.innerHTML += `<div class="message user">${question}</div>`;
+
+  input.value = ""; // Clear input
+
   try {
-      const response = await fetch('https://cloud.appwrite.io/v1/functions/67b29c5b8143655a6b04/executions', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-              'X-Appwrite-Project': '67b2ba1be1e39622c21d', // Replace with your Appwrite project ID
-          },
-          body: JSON.stringify({ question: message }),
+      const response = await fetch("https://cloud.appwrite.io/v1/functions/67b29c5b8143655a6b04/executions", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question }),
       });
-
       const data = await response.json();
-      console.log(data); // Handle the response
+      chatbox.innerHTML += `<div class="message bot">${data.reply || "Error processing request"}</div>`;
   } catch (error) {
-      console.error('Error:', error);
+      chatbox.innerHTML += `<div class="message bot">Error connecting to server</div>`;
   }
-};
-
-// Example usage
-document.getElementById('sendButton').addEventListener('click', () => {
-  const message = document.getElementById('messageInput').value;
-  sendMessage(message);
-});
-
-// Example usage
-sendQuestion("What is the capital of France?");
+}
