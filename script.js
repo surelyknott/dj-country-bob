@@ -27,7 +27,7 @@ async function sendMessage() {
 
   try {
     // Send the question to the Appwrite function
-    const response = await fetch("https://cloud.appwrite.io/v1//functions/b0b5ap1funct1ono2/executions", {
+    const response = await fetch("https://cloud.appwrite.io/v1/functions/b0b5ap1funct1ono2/executions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
