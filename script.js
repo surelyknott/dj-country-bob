@@ -31,13 +31,13 @@ async function sendMessage() {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${process.env.APPWRITE_API_KEY}`
         },
-        body: JSON.stringify({ question: userInput }),
-        mode: 'no-cors' // Add this line
-  });
-  
+        body: JSON.stringify({ question: question }) // Make sure to pass the correct variable
+      });
+
       const data = await response.json();
       chatbox.innerHTML += `<div class="message bot">${data.reply || "Error processing request"}</div>`;
   } catch (error) {
       chatbox.innerHTML += `<div class="message bot">Error connecting to server</div>`;
+      console.error("Error:", error); // Log the error for debugging
   }
 }
