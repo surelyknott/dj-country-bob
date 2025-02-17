@@ -1,4 +1,4 @@
-// require('dotenv').config(); // Load environment variables from .env file
+require('dotenv').config(); // Load environment variables from .env file
 const { Client } = require('node-appwrite');  // Removed 'Functions' since it's not used
 const fetch = require('node-fetch'); // Ensure node-fetch is available for making HTTP requests to OpenAI API
 

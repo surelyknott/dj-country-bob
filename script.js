@@ -1,13 +1,14 @@
-// Use ES module imports instead of require
-import { Client, Functions } from 'appwrite';
+import { Client, Functions } from 'appwrite';  // Correct import
 
-// Initialize Appwrite Client
+// Initialize Appwrite Client and Functions
 const client = new Client();
-client.setEndpoint('https://cloud.appwrite.io/v1') // Set the Appwrite endpoint
-      .setProject('b0batt3mpt2'); // Replace with your project ID
-
-// Initialize Functions service
 const functions = new Functions(client);
+
+// Set your Appwrite project ID here
+client
+    .setEndpoint('https://cloud.appwrite.io/v1')  // Your Appwrite endpoint
+    .setProject('b0batt3mpt2')  // Your project ID
+    .setKey(process.env.APPWRITE_API_KEY);  // Use environment variables for your API key
 
 // This function will be used for sending the message
 async function sendMessage() {
@@ -37,7 +38,6 @@ async function sendMessage() {
     chatbox.innerHTML += `<div class="message bot">Error connecting to server</div>`;
   }
 }
-
 
 // Event listener for genre buttons (affirmations)
 document.addEventListener('DOMContentLoaded', function () {
