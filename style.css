@@ -1,147 +1,154 @@
 body{
-    background-image: url(https://img.freepik.com/premium-photo/abstract-pui-light-background-wallpaper-colorful-gradient-blurry-soft-smooth-motion-bright-shine_792836-28758.jpg);
-    background-size: cover;
-    background-attachment: fixed;
+  background-image: url(https://img.freepik.com/premium-photo/abstract-pui-light-background-wallpaper-colorful-gradient-blurry-soft-smooth-motion-bright-shine_792836-28758.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }
 html, body {
-    width: 100%;
-    overflow-x: hidden;
+  width: 100%;
+  overflow-x: hidden;
 }
 ul.genreButtons{
-  list-style: none;
-  background: brown;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
+list-style: none;
+background: brown;
+padding: 5px;
+display: flex;
+align-items: center;
+justify-content: space-around;
+flex-wrap: wrap;
 }
 li{
-  display: inline-block;
-  margin: 0 5px;
+display: inline-block;
+margin: 0 5px;
 }
 
 /* layout */
 #bobAndButtons{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 }
 h3{
-    font-family:'Times New Roman', Times, serif;
-    font-size: 1 em;
-    color: black;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    margin:0;
-   }
+  font-family:'Times New Roman', Times, serif;
+  font-size: 1 em;
+  color: black;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  margin:0;
+ }
 .affirmations{
-    font-family:'Times New Roman', Times, serif;
-    font-size: 1em;
-    color: black;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center; 
-   }
+  font-family:'Times New Roman', Times, serif;
+  font-size: 1em;
+  color: black;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center; 
+ }
 #affirmationForm{
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 /* headings */
 h1{
-  font-family: "Bungee", serif;
-  font-weight: 400;
-  font-style: normal;
-  text-align: center;
-  font-size: 2.5em;
+font-family: "Bungee", serif;
+font-weight: 400;
+font-style: normal;
+text-align: center;
+font-size: 2.5em;
 }
 
 /* buttons */
 #reggaeBtn{
-  font-family: "Sigmar", serif;
-  font-weight: 400;
-  font-style: normal;
+font-family: "Sigmar", serif;
+font-weight: 400;
+font-style: normal;
 }
 #rockBtn{
-  font-family: "Metamorphous", serif;
-  font-weight: 400;
-  font-style: normal;
+font-family: "Metamorphous", serif;
+font-weight: 400;
+font-style: normal;
 }
 #hiphopBtn{
-  font-family: "Lilita One", serif;
-  font-weight: 400;
-  font-style: normal;
+font-family: "Lilita One", serif;
+font-weight: 400;
+font-style: normal;
 }
 #countryBtn{
-  font-family: "Sancreek", serif;
-  font-weight: 400;
-  font-style: normal;
+font-family: "Sancreek", serif;
+font-weight: 400;
+font-style: normal;
 }
 #latinBtn{
-  font-family: "Dancing Script", serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
+font-family: "Dancing Script", serif;
+font-optical-sizing: auto;
+font-weight: 800;
+font-style: normal;
 }
 #electroBtn{
-  font-family: "Orbitron", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+font-family: "Orbitron", serif;
+font-optical-sizing: auto;
+font-weight: 400;
+font-style: normal;
 }
 
 /* YouTube */
 .heroContainer {
-    display: flex;
-    justify-content: center; /* Center video */
-    align-items: center;
-    position: relative;
-    height: auto;
-    padding: 20px;
+  display: flex;
+  justify-content: center; /* Center video */
+  align-items: center;
+  position: relative;
+  height: auto;
+  padding: 20px;
 }
 
 /* Video Wrapper (Responsive YouTube Video) */
 .video-wrapper {
-    position: relative;
-    width: 80vw;
-    max-width: 560px;
+  position: relative;
+  width: 80vw;
+  max-width: 560px;
 }
 
 .video-wrapper iframe {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9; /* Ensures proper scaling */
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; /* Ensures proper scaling */
 }
 
 /* Image Responsiveness */
 #bobImage {
-    position: absolute;
-    bottom: 1%;
-    right: -13%;
-    width: 23vw;
-    max-width: 170px;
-    height: auto;
-    z-index: 10;
+  position: absolute;
+  bottom: 1%;
+  right: -13%;
+  width: 23vw;
+  max-width: 170px;
+  height: auto;
+  z-index: 10;
 }
 
 /* Mobile Resonsiveness */
 @media (max-width: 768px) {
-    #heroContainer {
-        align-items: flex-end;
-        text-align: center;
-    }
-
-    .video-wrapper {
-        max-width: 90%; /* Makes video use full width on mobile */
-    }
-
-    #bobImage {
-        width: 30vw;
-        max-width: 170px;
-    }
-h1{
-    font-size: 1.5em;
+  #heroContainer {
+      align-items: flex-end;
+      text-align: center;
   }
+
+  .video-wrapper {
+      max-width: 90%; /* Makes video use full width on mobile */
+  }
+
+  #bobImage {
+      width: 30vw;
+      max-width: 170px;
+  }
+h1{
+  font-size: 1.5em;
 }
+}
+
+/* Chatbot */
+
+#chatbox { width: 80%; max-width: 600px; margin: 20px auto; padding: 10px; border: 1px solid #ccc; }
+      .message { padding: 5px; margin: 5px 0; }
+      .user { text-align: right; color: blue; }
+      .bot { text-align: left; color: green; }
