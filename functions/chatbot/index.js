@@ -53,3 +53,5 @@ export default async function(req, res) {
         return res.json({ error: error.message || "Internal Server Error" }, 500);
     }
 }
+
+require("dotenv").config();

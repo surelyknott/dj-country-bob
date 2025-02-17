@@ -29,7 +29,7 @@ async function sendMessage() {
           method: "POST",
           headers: {
               "Content-Type": "application/json",
-              "X-Appwrite-Project": "67b349e4b057e5d42db4", // Replace with your Appwrite project ID
+              "X-Appwrite-Project": "67b29c5a002716522931", // Replace with your Appwrite project ID
           },
           body: JSON.stringify({ question }),
       });
