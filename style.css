@@ -2,6 +2,7 @@ body{
   background-image: url(https://img.freepik.com/premium-photo/abstract-pui-light-background-wallpaper-colorful-gradient-blurry-soft-smooth-motion-bright-shine_792836-28758.jpg);
   background-size: cover;
   background-attachment: fixed;
+  padding-bottom: 50px;
 }
 html, body {
   width: 100%;
@@ -19,6 +20,12 @@ flex-wrap: wrap;
 li{
 display: inline-block;
 margin: 0 5px;
+}
+li:nth-child(1){
+margin-left: 0;
+}
+#reggaeBtn{
+  margin-left: 5px;
 }
 .affirmList{
   margin: 0;
@@ -166,9 +173,16 @@ h2{
 /* Chatbot */
 
 #chatbox { width: 80%; max-width: 300px; margin: 10px auto; border: 1px solid #ccc;}
-      .message { padding: 5px; margin: 5px 0; }
-      .user { text-align: right; color: blue; }
-      .bot { text-align: left; color: green; }
+      .message { padding: 5px; margin: 5px 0;}
+      .user { text-align: right; color: black;}
+      .bot { text-align: left; color: blue;}
+
+#chatbox{
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto; /* Makes the container scrollable if content exceeds max-height */
+  max-height: 200px;
+}
 
 #chatContainer, #chatWithBob {
   display: flex; 
@@ -179,9 +193,5 @@ h2{
 #affirmationForm {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-}
-#chatbox{
-  flex-direction: column;
   justify-content: center;
 }
