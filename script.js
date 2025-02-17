@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-const appwriteApiKey = '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'; // Set directly here
-
+// Chatbot function 
 async function sendMessage() {
   const input = document.getElementById("userInput");
   const chatbox = document.getElementById("chatbox");
@@ -27,20 +26,19 @@ async function sendMessage() {
   input.value = ""; // Clear input
 
   try {
-      const response = await fetch("https://cloud.appwrite.io/v1/functions/b0b5ap1funct1ono2/executions", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${appwriteApiKey}` // Use the variable directly
-        },
-        body: JSON.stringify({ question: question })  // Use the 'question' directly
-  });
-  
-      const data = await response.json();
-      chatbox.innerHTML += `<div class="message bot">${data.reply || "Error processing request"}</div>`;
+    // Send the question to the Appwrite function
+    const response = await fetch("https://cloud.appwrite.io/v1/v1/functions/b0b5ap1funct1ono2/executions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer  ${process.env.APPWRITE_API_KEY}`,  // You should replace with your Appwrite API key if needed
+      },
+      body: JSON.stringify({ question }), // Send the question as part of the request
+    });
+
+    const data = await response.json();
+    chatbox.innerHTML += `<div class="message bot">${data.reply || "Error processing request"}</div>`;
   } catch (error) {
-      chatbox.innerHTML += `<div class="message bot">Error connecting to server</div>`;
+    chatbox.innerHTML += `<div class="message bot">Error connecting to server</div>`;
   }
 }
-
-
