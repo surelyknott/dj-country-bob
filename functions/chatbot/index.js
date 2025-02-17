@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config(); // Load environment variables from .env file
 const { Client } = require('node-appwrite');  // Removed 'Functions' since it's not used
 const fetch = require('node-fetch'); // Ensure node-fetch is available for making HTTP requests to OpenAI API
 
@@ -53,7 +53,7 @@ module.exports = async function (req, res) {
         if (response.ok) {
             return res.json({ answer: data.choices[0].message.content });
         } else {
-            return res.json({ error: data.error.message || "Failed to get response" }, 500);
+            return res.json({ error: data.error.message || "Failed to get response from OpenAI" }, 500);
         }
 
     } catch (error) {

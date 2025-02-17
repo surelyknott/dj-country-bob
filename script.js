@@ -1,30 +1,16 @@
-// This is our site Java Script
-document.addEventListener('DOMContentLoaded', function() {
-  const affirmations = document.querySelectorAll('.affirmations li');
-  affirmations.forEach(affirmation => affirmation.style.display = 'none');
-
-  const buttons = document.querySelectorAll('.genreButtons button');
-  buttons.forEach(button => {
-    button.addEventListener('click', function() {
-      affirmations.forEach(affirmation => affirmation.style.display = 'none');
-      const randomIndex = Math.floor(Math.random() * affirmations.length);
-      affirmations[randomIndex].style.display = 'block';
-    });
-  });
-});
-
+// Use ES module imports instead of require
 import { Client, Functions } from 'appwrite';
 
 // Initialize Appwrite Client
 const client = new Client();
-client.setEndpoint('https://cloud.appwrite.io/v1') // Make sure to set the Appwrite endpoint
+client.setEndpoint('https://cloud.appwrite.io/v1') // Set the Appwrite endpoint
       .setProject('b0batt3mpt2'); // Replace with your project ID
 
 // Initialize Functions service
 const functions = new Functions(client);
 
-// Chatbot function (sending message)
-export async function sendMessage() {  // Export the function to make it available in global scope
+// This function will be used for sending the message
+async function sendMessage() {
   const input = document.getElementById("userInput");
   const chatbox = document.getElementById("chatbox");
   const question = input.value.trim();
@@ -34,32 +20,42 @@ export async function sendMessage() {  // Export the function to make it availab
   chatbox.innerHTML += `<div class="message user">${question}</div>`;
 
   input.value = ""; // Clear input
-
+  
   try {
-    // Send the question to the Appwrite function
     const response = await functions.createExecution('b0b5ap1funct1ono2', JSON.stringify({ question }));
-
-    // Check if the response contains a 'reply' field
-    chatbox.innerHTML += `<div class="message bot">${response.result.reply || "Error processing request"}</div>`;
+    
+    // Log the entire response to inspect all available fields
+    console.log('Full Response:', response);
+  
+    // Use the most relevant field based on the response structure
+    // For example, check if `response.text` or a different field holds the response from the function
+    const reply = response.result ? response.result.reply : "No reply from server.";
+    
+    chatbox.innerHTML += `<div class="message bot">${reply}</div>`;
   } catch (error) {
+    console.error('Error details:', error);
     chatbox.innerHTML += `<div class="message bot">Error connecting to server</div>`;
   }
 }
 
+
 // Event listener for genre buttons (affirmations)
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const affirmations = document.querySelectorAll('.affirmations li');
   affirmations.forEach(affirmation => affirmation.style.display = 'none');
 
   const buttons = document.querySelectorAll('.genreButtons button');
   buttons.forEach(button => {
-    button.addEventListener('click', function() {
+    button.addEventListener('click', function () {
       affirmations.forEach(affirmation => affirmation.style.display = 'none');
       const randomIndex = Math.floor(Math.random() * affirmations.length);
       affirmations[randomIndex].style.display = 'block';
     });
   });
-});
 
-// Attach the sendMessage function to the button click in HTML
-document.getElementById("sendMessageButton").addEventListener("click", sendMessage);
+  // Attach the sendMessage function to the button click in HTML
+  const sendMessageButton = document.getElementById("sendMessageButton");
+  if (sendMessageButton) {
+    sendMessageButton.addEventListener("click", sendMessage);
+  }
+});
