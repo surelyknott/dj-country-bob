@@ -24,7 +24,6 @@ flex-wrap: wrap;
 li{
 display: inline-block;
 margin: 0 5px;
-color: black;
 }
 li:nth-child(1){
 margin-left: 0;
@@ -109,6 +108,7 @@ h2{
 /* buttons */
 .btnColor{
   background: #dce6a6de;
+  color: black;
 }
 #reggaeBtn{
 font-family: "Sigmar", serif;
