@@ -8,22 +8,22 @@
   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bowlby+One+SC&family=Bungee&family=Climate+Crisis&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Metamorphous&family=Orbitron:wght@400..900&family=Sancreek&family=Sigmar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bowlby+One+SC&family=Bungee&family=Climate+Crisis&family=Dancing+Script:wght@400..700&family=Lilita+One&family=Metamorphous&family=Orbitron:wght@400..900&family=Sancreek&family=Sigmar&display=swap" rel="stylesheet">
     
   <title>Bob DJ</title>
 </head>
   
-<body>
+<body id="body">
   
-  <section id="bobAndButtons">
+ <section id="bobAndButtons">
     <h1>Bob: 100Devs Resident DJ</h1>
       <ul class="genreButtons">
-          <li><button id="reggaeBtn">Reggae</button></li>
-          <li><button id="rockBtn">Rock</button></li>
-          <li><button id="hiphopBtn">Hip-Hop</button></li>
-          <li><button id="countryBtn">Country</button></li>
-          <li><button id="latinBtn">Latin</button></li>
-          <li><button id="electroBtn">Electro</button></li>
+          <li><button class="btnColor" id="reggaeBtn" onclick="playPlaylist('PL84YlmiurAt4QYXfkXhGpvxW_xr7vMf5y', 'https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/Bob-Marley.png?v=1739665169178');changeBackground('https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/smoke.png?v=1739671120103')">Reggae</button></li>
+          <li><button class="btnColor" id="rockBtn" onclick="playPlaylist('PL84YlmiurAt6v7aJZa4oZgqufEavhdqfc', 'https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/Bob-rock.png?v=1739665180116');changeBackground('https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/crowd.png?v=1739671814864')">Rock</button></li>
+          <li><button class="btnColor" id="hiphopBtn" onclick="playPlaylist('PL84YlmiurAt6-iqBONsL8xZFOwzmcoQd3', 'https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/bob-hop.png?v=1739668625795'); changeBackground('https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/hipHop.png?v=1739671111628')">Hip-Hop</button></li>
+          <li><button class="btnColor" id="countryBtn" onclick="playPlaylist('PL84YlmiurAt4fzdqbS18Y6fEGN4aCvRYV&jct', 'https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/bob-country-wanted.png?v=1739669895848'); changeBackground('https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/countryField.png?v=1739671101907')">Country</button></li>
+          <li><button class="btnColor" id="latinBtn" onclick="playPlaylist('PL84YlmiurAt7mI3dxAfzmmESB36QpqxlV', 'https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/bob-latin.png?v=1739673952343'); changeBackground('https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/mexican.jpg?v=1739671796505')">Latin</button></li>
+          <li><button class="btnColor" id="electroBtn" onclick="playPlaylist('PL84YlmiurAt6wKwO6YP9tr-Lh71Zcv7t4', 'https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/bob-electro.png?v=1739675202495'); changeBackground('https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/rave.png?v=1739671126321')">Electro</button></li>
       </ul>
   </section>
   
@@ -35,15 +35,15 @@
         </iframe>
         
         <img id="bobImage" 
-            src="https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/Bob-rock.png?v=1739665180116" 
+            src="https://cdn.glitch.global/10030438-e881-4aff-a638-a812c7071574/Bob-default.png?v=1739663595043" 
             alt="Bob image">
     </div>
   </div>
 
   <section>
-    <h2>Bob's Dev Affirmations:</h2>
+    <h2>Bob's Affirmations:</h2>
     <div class="affirmations">
-      <ul>
+      <ul class="affirmHolder">
         <li class="affirmList">"I am a coding rockstar, unafraid to face any challenge."</li>
         <li class="affirmList">"I am a coding ninja, precise, and full of caffeine!"</li>
         <li class="affirmList">"Every day, I grow and become a better developer."</li>
@@ -59,7 +59,7 @@
     </div>
   </section>
 
-<a id="affirmationForm" href="form.html">TEST FOR OPENING FORM</a>
+<a id="affirmationForm" href="form.html">test for form opening</a>
   <div id="chatContainer">
     <div id="chatWithBob">
       <h2>Chat with Bob</h2>
@@ -70,10 +70,8 @@
     </div>
   </div>
 
-
-  
-  
   <script src="script.js"></script>
 
 </body>
 </html>
+ 

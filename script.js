@@ -1,4 +1,4 @@
-// This is our site Java Script
+// affirmations 
 document.addEventListener('DOMContentLoaded', function() {
   const affirmations = document.querySelectorAll('.affirmations li');
   affirmations.forEach(affirmation => affirmation.style.display = 'none');
@@ -13,32 +13,47 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Chatbot function 
+
+
 async function sendMessage() {
-  const input = document.getElementById("userInput");
-  const chatbox = document.getElementById("chatbox");
-  const question = input.value.trim();
-  if (!question) return;
+            const input = document.getElementById("userInput");
+            const chatbox = document.getElementById("chatbox");
+            const question = input.value.trim();
+            if (!question) return;
 
-  // Display user message
-  chatbox.innerHTML += `<div class="message user">${question}</div>`;
+            // Display user message
+            chatbox.innerHTML += `<div class="message user">${question}</div>`;
 
-  input.value = ""; // Clear input
+            input.value = ""; // Clear input
 
-  try {
-    // Send the question to the Appwrite function
-    const response = await fetch("https://cloud.appwrite.io/v1//functions/b0b5ap1funct1ono2/executions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ question }), // Send the question as part of the request
-    });
+            try {
+                const response = await fetch("67b29c5b8143655a6b04.appwrite.global", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question }),
+                });
+                const data = await response.json();
+                chatbox.innerHTML += `<div class="message bot">${data.reply || "Error processing request"}</div>`;
+            } catch (error) {
+                chatbox.innerHTML += `<div class="mess.age bot">Error connecting to server</div>`;
+            }
+        }
 
-    const data = await response.json();
-    chatbox.innerHTML += `<div class="message bot">${data.reply || "Error processing request"}</div>`;
-  } catch (error) {
-    chatbox.innerHTML += `<div class="message bot">Error connecting to server</div>`;
-  }
+// Playlist update
+function playPlaylist(playlistId, imageUrl,) {
+  const playlistUrl = `https://www.youtube.com/embed/videoseries?list=${playlistId}`;
+  document.getElementById('youTubeContainer').src = playlistUrl;
+  
+  document.getElementById('bobImage').src = imageUrl;  
 }
+
+
+//Changing backgrounds
+function changeBackground(imageUrl) {
+  document.body.style.backgroundImage = `url(${imageUrl})`;
+}
+
+
+
+
 
